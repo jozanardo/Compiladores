@@ -10,11 +10,21 @@ leia(b).
 
 se (a<b) entao
 {
-    c := a + b + x.
+    c := a + b.
 } senao
 {
     c := a - b.
 }
+
+enquanto (a<=c)
+{
+    a := a + 1.
+}
+
+faca
+{
+    leia(e).
+} enquanto (b == c)
 
 escreva("C e igual a ").
 escreva(c).

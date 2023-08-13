@@ -1,5 +1,21 @@
+import org.antlr.v4.runtime.CharStreams;
+import org.antlr.v4.runtime.CommonTokenStream;
+
 public class MainClass {
     public static void main(String[] args) {
-        System.out.println("Vai funciona");
+        try {
+            IsiLanguageLexer lexer;
+            IsiLanguageParser parser;
+
+            lexer = new IsiLanguageLexer(CharStreams.fromFileName("input.isi"));
+            CommonTokenStream tokenStream = new CommonTokenStream(lexer);
+
+            parser = new IsiLanguageParser(tokenStream);
+            parser.programa();
+
+            System.out.println("Compilation Successful");
+        } catch (Exception ex) {
+            System.err.println("ERROR "+ex.getMessage());
+        }
     }
 }

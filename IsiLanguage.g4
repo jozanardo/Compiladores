@@ -1,20 +1,20 @@
 grammar IsiLanguage;
 
-programa    : 'programa' declara bloco 'fimprog.' ;
+programa    : 'programa' declara bloco 'fimprog' PF ;
 
-declara     : 'declare' ID (',' ID)* '.' ;
+declara     : 'declare' ID (',' ID)* PF ;
 
-bloco       : (cmd '.')+ ;
+bloco       : (cmd)+ ;
 
 cmd         : cmdLeitura | cmdEscrita | cmdExpr | cmdIf ;
 
-cmdLeitura  : 'leia' '(' ID ')' ;
+cmdLeitura  : 'leia' AP ID FP PF ;
 
-cmdEscrita  : 'escreva' '(' TEXTO | ID ')' ;
+cmdEscrita  : 'escreva' AP (TEXTO | ID) FP PF ;
 
-cmdIf       : 'se' '(' expr OP_REL expr ')' 'entao' '{' cmd+ '}' ('senao' '{' cmd+ '}')? ;
+cmdIf       : 'se' AP expr OP_REL expr FP 'entao' AC cmd+ FC ('senao' AC cmd+ FC)? ;
 
-cmdExpr     : ID ':=' expr ;
+cmdExpr     : ID ':=' expr PF ;
 
 OP_REL      : '<' | '>' | '<=' | '>=' | '!=' | '==' ;
 
@@ -28,10 +28,20 @@ termol      : ('*' fator termol)* | ('/' fator termol)* ;
 
 fator       : NUM | ID | '(' expr ')' ;
 
-TEXTO       : '\"' ([0-9] | [a-z] | [A-Z] | '\s')+ '\"' ;
+TEXTO       : '"' ( '\\"' | . )*? '"' ;
 
 NUM         : [0-9]+ ('.' [0-9]+)? ;
 
 ID          : [a-zA-Z] ([a-z] | [A-Z] | [0-9])* ;
+
+PF          : '.' ;
+
+AP          : '(' ;
+
+FP          : ')' ;
+
+AC          : '{' ;
+
+FC          : '}' ;
 
 WS          : (' ' | '\t' | '\n' | '\r') -> skip ;

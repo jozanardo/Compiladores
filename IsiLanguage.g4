@@ -55,17 +55,23 @@ tipo        : 'numero' { _tipo = IsiVariable.NUMBER; }
 
 bloco       : (cmd)+ ;
 
-cmd         : cmdLeitura | cmdEscrita | cmdExpr | cmdIf | cmdWhile | cmdDoWhile ;
+cmd         : cmdLeitura | cmdEscrita | cmdExpr | cmdIf | cmdWhile | cmdDoWhile | cmdFor ;
 
 cmdLeitura  : 'leia' AP ID { verifyID(_input.LT(-1).getText()); } FP PF ;
 
 cmdEscrita  : 'escreva' AP (TEXTO | ID { verifyID(_input.LT(-1).getText()); } ) FP PF ;
 
-cmdIf       : 'se' AP expr OP_REL expr FP 'entao' AC cmd+ FC ('senao' AC cmd+ FC)? ;
+cmdIf       : 'se' AP condicao FP 'entao' AC bloco FC ('senao' AC bloco FC)? ;
 
-cmdWhile    : 'enquanto' AP expr OP_REL expr FP AC cmd+ FC ;
+cmdWhile    : 'enquanto' AP condicao FP AC bloco FC ;
 
-cmdDoWhile  : 'faca' AC cmd+ FC 'enquanto' AP expr OP_REL expr FP ;
+cmdDoWhile  : 'faca' AC bloco FC 'enquanto' AP expr OP_REL expr FP ;
+
+cmdFor      : 'para' AP forExpr? PV? condicao? PV? forExpr? FP AC bloco FC ;
+
+forExpr      : ID { verifyID(_input.LT(-1).getText()); } ATTR expr ;
+
+condicao     : expr OP_REL expr ;
 
 cmdExpr     : ID { verifyID(_input.LT(-1).getText()); } ATTR expr PF ;
 

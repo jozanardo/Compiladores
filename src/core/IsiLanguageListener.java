@@ -124,6 +124,36 @@ public interface IsiLanguageListener extends ParseTreeListener {
 	 */
 	void exitCmdDoWhile(IsiLanguageParser.CmdDoWhileContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link IsiLanguageParser#cmdFor}.
+	 * @param ctx the parse tree
+	 */
+	void enterCmdFor(IsiLanguageParser.CmdForContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link IsiLanguageParser#cmdFor}.
+	 * @param ctx the parse tree
+	 */
+	void exitCmdFor(IsiLanguageParser.CmdForContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link IsiLanguageParser#forExpr}.
+	 * @param ctx the parse tree
+	 */
+	void enterForExpr(IsiLanguageParser.ForExprContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link IsiLanguageParser#forExpr}.
+	 * @param ctx the parse tree
+	 */
+	void exitForExpr(IsiLanguageParser.ForExprContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link IsiLanguageParser#condicao}.
+	 * @param ctx the parse tree
+	 */
+	void enterCondicao(IsiLanguageParser.CondicaoContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link IsiLanguageParser#condicao}.
+	 * @param ctx the parse tree
+	 */
+	void exitCondicao(IsiLanguageParser.CondicaoContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link IsiLanguageParser#cmdExpr}.
 	 * @param ctx the parse tree
 	 */

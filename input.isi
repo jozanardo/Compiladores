@@ -26,6 +26,10 @@ faca
     leia(e).
 } enquanto (b == c)
 
+para (d := 0 ; d < 10 ; d := d + 1) {
+    leia(c).
+}
+
 escreva("C e igual a ").
 escreva(c).
 

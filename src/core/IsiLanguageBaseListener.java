@@ -1,5 +1,12 @@
 // Generated from .\IsiLanguage.g4 by ANTLR 4.13.0
 
+    import datastructures.IsiSymbol;
+    import datastructures.IsiVariable;
+    import datastructures.IsiSymbolTable;
+    import exceptions.IsiSemanticException;
+    import java.util.ArrayList;
+
+
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
@@ -35,6 +42,30 @@ public class IsiLanguageBaseListener implements IsiLanguageListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitDeclara(IsiLanguageParser.DeclaraContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDeclaravar(IsiLanguageParser.DeclaravarContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDeclaravar(IsiLanguageParser.DeclaravarContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTipo(IsiLanguageParser.TipoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTipo(IsiLanguageParser.TipoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

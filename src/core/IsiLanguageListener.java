@@ -1,4 +1,11 @@
 // Generated from .\IsiLanguage.g4 by ANTLR 4.13.0
+
+    import datastructures.IsiSymbol;
+    import datastructures.IsiVariable;
+    import datastructures.IsiSymbolTable;
+    import exceptions.IsiSemanticException;
+    import java.util.ArrayList;
+
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -26,6 +33,26 @@ public interface IsiLanguageListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitDeclara(IsiLanguageParser.DeclaraContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link IsiLanguageParser#declaravar}.
+	 * @param ctx the parse tree
+	 */
+	void enterDeclaravar(IsiLanguageParser.DeclaravarContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link IsiLanguageParser#declaravar}.
+	 * @param ctx the parse tree
+	 */
+	void exitDeclaravar(IsiLanguageParser.DeclaravarContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link IsiLanguageParser#tipo}.
+	 * @param ctx the parse tree
+	 */
+	void enterTipo(IsiLanguageParser.TipoContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link IsiLanguageParser#tipo}.
+	 * @param ctx the parse tree
+	 */
+	void exitTipo(IsiLanguageParser.TipoContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link IsiLanguageParser#bloco}.
 	 * @param ctx the parse tree

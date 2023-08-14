@@ -16,17 +16,18 @@ grammar IsiLanguage;
     private IsiSymbol symbol;
 
     public void addID(String id, IsiSymbol symbol) {
+    	
         if (!symbolTable.exists(id)) {
             symbolTable.add(symbol);
             System.out.println("Simbolo adicionado " + symbol);
         } else {
-            throw new IsiSemanticException("Symbo already " + id + " declared");
+            throw new IsiSemanticException("Symbol "+ id + " already declared");
         }
     }
 
     public void verifyID(String id) {
         if (!symbolTable.exists(id)) {
-            throw new IsiSemanticException("Symbol not "+id+" declared");
+            throw new IsiSemanticException("Symbol "+ id + " already declared");
         }
     }
 }
@@ -39,13 +40,13 @@ declaravar  : tipo ID {
                 _varName = _input.LT(-1).getText();
                 _varValue = null;
                 symbol = new IsiVariable(_varName, _tipo, _varValue);
-                addID(_varValue, symbol);
+                addID(_varName, symbol);
             }
             (VIR ID {
                 _varName = _input.LT(-1).getText();
                 _varValue = null;
                 symbol = new IsiVariable(_varName, _tipo, _varValue);
-                addID(_varValue, symbol);
+                addID(_varName, symbol);
             })* PF
             ;
 

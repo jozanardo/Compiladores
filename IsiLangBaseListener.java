@@ -10,7 +10,7 @@
 	import br.com.professorisidro.isilanguage.ast.CommandEscrita;
 	import br.com.professorisidro.isilanguage.ast.CommandAtribuicao;
 	import br.com.professorisidro.isilanguage.ast.CommandDecisao;
-	import br.com.professorisidro.isilanguage.ast.CommandLaco;
+	import br.com.professorisidro.isilanguage.ast.CommandWhile;
 	import java.util.ArrayList;
 	import java.util.Stack;
 
@@ -102,13 +102,13 @@ public class IsiLangBaseListener implements IsiLangListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCmdlaco(IsiLangParser.CmdlacoContext ctx) { }
+	@Override public void enterCmdWhile(IsiLangParser.CmdWhileContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCmdlaco(IsiLangParser.CmdlacoContext ctx) { }
+	@Override public void exitCmdWhile(IsiLangParser.CmdWhileContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

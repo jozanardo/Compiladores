@@ -1,4 +1,4 @@
-// Generated from .\IsiLanguage.g4 by ANTLR 4.13.0
+// Generated from .\\IsiLanguage.g4 by ANTLR 4.13.0
 
     import datastructures.IsiSymbol;
     import datastructures.IsiVariable;
@@ -114,7 +114,7 @@ public class IsiLanguageLexer extends Lexer {
 
 	    public void verifyID(String id) {
 	        if (!symbolTable.exists(id)) {
-	            throw new IsiSemanticException("Symbol "+ id + " already declared");
+	            throw new IsiSemanticException("Symbol "+ id + " not declared");
 	        }
 	    }
 

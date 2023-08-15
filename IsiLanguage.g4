@@ -27,7 +27,7 @@ grammar IsiLanguage;
 
     public void verifyID(String id) {
         if (!symbolTable.exists(id)) {
-            throw new IsiSemanticException("Symbol "+ id + " already declared");
+            throw new IsiSemanticException("Symbol "+ id + " not declared");
         }
     }
 }

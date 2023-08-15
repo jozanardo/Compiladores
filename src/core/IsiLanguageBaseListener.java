@@ -1,4 +1,4 @@
-// Generated from .\IsiLanguage.g4 by ANTLR 4.13.0
+// Generated from .\\IsiLanguage.g4 by ANTLR 4.13.0
 
     import datastructures.IsiSymbol;
     import datastructures.IsiVariable;

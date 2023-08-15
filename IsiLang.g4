@@ -11,7 +11,7 @@ grammar IsiLang;
 	import br.com.professorisidro.isilanguage.ast.CommandEscrita;
 	import br.com.professorisidro.isilanguage.ast.CommandAtribuicao;
 	import br.com.professorisidro.isilanguage.ast.CommandDecisao;
-	import br.com.professorisidro.isilanguage.ast.CommandLaco;
+	import br.com.professorisidro.isilanguage.ast.CommandWhile;
 	import java.util.ArrayList;
 	import java.util.Stack;
 }
@@ -127,10 +127,10 @@ cmd		:  cmdleitura
  		|  cmdescrita 
  		|  cmdattrib
  		|  cmdselecao
- 		|  cmdlaco 
+ 		|  cmdWhile 
 		;
 
-cmdlaco : 'enquanto' AP
+cmdWhile : 'enquanto' AP
 				 ID    { _exprDecision = _input.LT(-1).getText(); }
                  OPREL { _exprDecision += _input.LT(-1).getText(); }
                  (ID | NUMBER) {_exprDecision += _input.LT(-1).getText(); }
@@ -142,7 +142,7 @@ cmdlaco : 'enquanto' AP
 	                (cmd)+
 				 FCH{
 				 	stack.pop();
-				 	CommandLaco cmd = new CommandLaco(_exprDecision, curThread);
+				 	CommandWhile cmd = new CommandWhile(_exprDecision, curThread);
 				 	stack.peek().add(cmd);
 				 }
 		 ;

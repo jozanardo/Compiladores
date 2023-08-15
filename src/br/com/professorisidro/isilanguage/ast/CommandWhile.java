@@ -2,11 +2,11 @@ package br.com.professorisidro.isilanguage.ast;
 
 import java.util.ArrayList;
 
-public class CommandLaco extends AbstractCommand {
+public class CommandWhile extends AbstractCommand {
 	private String condition;
 	private ArrayList<AbstractCommand> lista;
 	
-	public CommandLaco(String condition, ArrayList<AbstractCommand> lista) {
+	public CommandWhile(String condition, ArrayList<AbstractCommand> lista) {
 		this.condition = condition;
 		this.lista = lista;
 	}
@@ -25,6 +25,8 @@ public class CommandLaco extends AbstractCommand {
 	
 	@Override
 	public String toString() {
-		return "CommandLaco [condition=" + condition + ", lista=" + lista + "]";
+		return "CommandWhile [condition=" + condition + ", lista=" + lista + "]";
 	}
+	
+	
 }

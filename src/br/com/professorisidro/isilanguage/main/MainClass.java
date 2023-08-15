@@ -27,14 +27,17 @@ public class MainClass {
 			
 			// crio meu parser a partir desse tokenStream
 			parser = new IsiLangParser(tokenStream);
-			
-			parser.programa();
+			parser.prog();
 			
 			System.out.println("Compilation Successful");
 			
-			// parser.showComands();
+			parser.exibeComandos();
 			
 			parser.generateCode();
+			
+			parser.exibeWarnings();
+			
+			
 			
 		}
 		catch(IsiSemanticException ex) {

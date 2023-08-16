@@ -10,7 +10,7 @@
 	import br.com.professorisidro.isilanguage.ast.CommandEscrita;
 	import br.com.professorisidro.isilanguage.ast.CommandAtribuicao;
 	import br.com.professorisidro.isilanguage.ast.CommandDecisao;
-	import br.com.professorisidro.isilanguage.ast.CommandLaco;
+	import br.com.professorisidro.isilanguage.ast.CommandWhile;
 	import java.util.ArrayList;
 	import java.util.Stack;
 
@@ -36,10 +36,10 @@ public class IsiLangParser extends Parser {
 		ID=19, NUMBER=20, TEXTO=21, WS=22, INTEGER=23;
 	public static final int
 		RULE_prog = 0, RULE_decl = 1, RULE_declaravar = 2, RULE_tipo = 3, RULE_bloco = 4, 
-		RULE_cmd = 5, RULE_cmdlaco = 6, RULE_cmdleitura = 7, RULE_cmdescrita = 8, 
+		RULE_cmd = 5, RULE_cmdWhile = 6, RULE_cmdleitura = 7, RULE_cmdescrita = 8, 
 		RULE_cmdattrib = 9, RULE_cmdselecao = 10, RULE_expr = 11, RULE_termo = 12;
 	public static final String[] ruleNames = {
-		"prog", "decl", "declaravar", "tipo", "bloco", "cmd", "cmdlaco", "cmdleitura", 
+		"prog", "decl", "declaravar", "tipo", "bloco", "cmd", "cmdWhile", "cmdleitura", 
 		"cmdescrita", "cmdattrib", "cmdselecao", "expr", "termo"
 	};
 
@@ -481,8 +481,8 @@ public class IsiLangParser extends Parser {
 		public CmdselecaoContext cmdselecao() {
 			return getRuleContext(CmdselecaoContext.class,0);
 		}
-		public CmdlacoContext cmdlaco() {
-			return getRuleContext(CmdlacoContext.class,0);
+		public CmdWhileContext cmdWhile() {
+			return getRuleContext(CmdWhileContext.class,0);
 		}
 		public CmdContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -537,7 +537,7 @@ public class IsiLangParser extends Parser {
 				enterOuterAlt(_localctx, 5);
 				{
 				setState(66);
-				cmdlaco();
+				cmdWhile();
 				}
 				break;
 			default:
@@ -555,7 +555,7 @@ public class IsiLangParser extends Parser {
 		return _localctx;
 	}
 
-	public static class CmdlacoContext extends ParserRuleContext {
+	public static class CmdWhileContext extends ParserRuleContext {
 		public TerminalNode AP() { return getToken(IsiLangParser.AP, 0); }
 		public List<TerminalNode> ID() { return getTokens(IsiLangParser.ID); }
 		public TerminalNode ID(int i) {
@@ -572,23 +572,23 @@ public class IsiLangParser extends Parser {
 		public CmdContext cmd(int i) {
 			return getRuleContext(CmdContext.class,i);
 		}
-		public CmdlacoContext(ParserRuleContext parent, int invokingState) {
+		public CmdWhileContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_cmdlaco; }
+		@Override public int getRuleIndex() { return RULE_cmdWhile; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof IsiLangListener ) ((IsiLangListener)listener).enterCmdlaco(this);
+			if ( listener instanceof IsiLangListener ) ((IsiLangListener)listener).enterCmdWhile(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof IsiLangListener ) ((IsiLangListener)listener).exitCmdlaco(this);
+			if ( listener instanceof IsiLangListener ) ((IsiLangListener)listener).exitCmdWhile(this);
 		}
 	}
 
-	public final CmdlacoContext cmdlaco() throws RecognitionException {
-		CmdlacoContext _localctx = new CmdlacoContext(_ctx, getState());
-		enterRule(_localctx, 12, RULE_cmdlaco);
+	public final CmdWhileContext cmdWhile() throws RecognitionException {
+		CmdWhileContext _localctx = new CmdWhileContext(_ctx, getState());
+		enterRule(_localctx, 12, RULE_cmdWhile);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
@@ -639,7 +639,7 @@ public class IsiLangParser extends Parser {
 			match(FCH);
 
 							 	stack.pop();
-							 	CommandLaco cmd = new CommandLaco(_exprDecision, curThread);
+							 	CommandWhile cmd = new CommandWhile(_exprDecision, curThread);
 							 	stack.peek().add(cmd);
 							 
 			}

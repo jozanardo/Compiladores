@@ -12,7 +12,15 @@ programa
   
   a := 1 + 2 * 3 / b.
   
-
+  t := 4.
+  
+  faca {
+  
+  	escreva(a).
+  	t := t - 1.
+  } enquanto (t < 4)
+  
+  	
   se ( a > b ) {
      escreva (a).
   }
@@ -27,5 +35,7 @@ programa
   }
   escreva(a).
   escreva(t1).
+  
+  
 
 fimprog.

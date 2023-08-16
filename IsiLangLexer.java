@@ -10,7 +10,7 @@
 	import br.com.professorisidro.isilanguage.ast.CommandEscrita;
 	import br.com.professorisidro.isilanguage.ast.CommandAtribuicao;
 	import br.com.professorisidro.isilanguage.ast.CommandDecisao;
-	import br.com.professorisidro.isilanguage.ast.CommandLaco;
+	import br.com.professorisidro.isilanguage.ast.CommandWhile;
 	import java.util.ArrayList;
 	import java.util.Stack;
 

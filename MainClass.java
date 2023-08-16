@@ -18,7 +18,7 @@ t = 4;
  do {
 System.out.println(a);
 t = t-1;
-} while(t<4); 
+} while(t>2); 
 
 if (a>b) {
 System.out.println(a);}else {

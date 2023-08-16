@@ -12,6 +12,7 @@ double  t1;
 String  t2;
 a= _key.nextDouble();
 b= _key.nextDouble();
+t2 = "teste";
 a = 1+2*3/b;
 t = 4;
 

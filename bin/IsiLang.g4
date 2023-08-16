@@ -211,7 +211,7 @@ cmdattrib	:  ID { verificaID(_input.LT(-1).getText());
 			        if (var.getType() == 0 & _exprContent.indexOf("\'") >=0) {
 			        	throw new IsiSemanticException("Symbol "+_exprID+" is declared as number");
 			        }
-			        else if(var.getType() == 1 & _exprContent.indexOf("\'") < 0) {
+			        else if(var.getType() == 1 & _exprContent.indexOf("\"") < 0) {
 			        	throw new IsiSemanticException("Symbol "+_exprID+" is declared as string");
 			        }
                	 CommandAtribuicao cmd = new CommandAtribuicao(_exprID, _exprContent);
@@ -304,8 +304,8 @@ ID	: [a-z] ([a-z] | [A-Z] | [0-9])*
 NUMBER	: [0-9]+ ('.' [0-9]+)?
 		;
 		
-TEXTO : '"' ( '\\"' | . )*? '"'
- 	 ;		
+TEXTO	: ['"']([a-z] | [A-Z] | [0-9])*['"']
+ 	 	;		
 
 WS	: (' ' | '\t' | '\n' | '\r') -> skip;
 

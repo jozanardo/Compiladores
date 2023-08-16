@@ -10,6 +10,8 @@ programa
   leia(a).
   leia(b).
   
+  t2 := "teste".
+  
   a := 1 + 2 * 3 / b.
   
   t := 4.

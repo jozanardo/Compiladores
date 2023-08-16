@@ -12,6 +12,7 @@ grammar IsiLang;
 	import br.com.professorisidro.isilanguage.ast.CommandAtribuicao;
 	import br.com.professorisidro.isilanguage.ast.CommandDecisao;
 	import br.com.professorisidro.isilanguage.ast.CommandWhile;
+	import br.com.professorisidro.isilanguage.ast.CommandDoWhile;
 	import java.util.ArrayList;
 	import java.util.Stack;
 }
@@ -127,8 +128,32 @@ cmd		:  cmdleitura
  		|  cmdescrita 
  		|  cmdattrib
  		|  cmdselecao
- 		|  cmdWhile 
+ 		|  cmdWhile
+		|  cmdDoWhile 
 		;
+
+cmdDoWhile : 'faca' ACH
+				
+			  { curThread = new ArrayList<AbstractCommand>(); 
+	                      stack.push(curThread);
+	                }
+	                (cmd)+
+				 FCH ( 'enquanto' AP
+				 		ID    { _exprDecision = _input.LT(-1).getText(); }
+                 				OPREL { _exprDecision += _input.LT(-1).getText(); }
+                 				(ID | NUMBER) {_exprDecision += _input.LT(-1).getText(); }
+				 FP
+					
+					{
+				 	stack.pop();
+				 	CommandDoWhile cmd = new CommandDoWhile(_exprDecision, curThread);
+				 	stack.peek().add(cmd);
+				 }
+			)?
+               ;
+		
+		
+		
 
 cmdWhile : 'enquanto' AP
 				 ID    { _exprDecision = _input.LT(-1).getText(); }

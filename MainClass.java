@@ -13,6 +13,13 @@ String  t2;
 a= _key.nextDouble();
 b= _key.nextDouble();
 a = 1+2*3/b;
+t = 4;
+
+ do {
+System.out.println(a);
+t = t-1;
+} while(t<4); 
+
 if (a>b) {
 System.out.println(a);}else {
 System.out.println(b);}

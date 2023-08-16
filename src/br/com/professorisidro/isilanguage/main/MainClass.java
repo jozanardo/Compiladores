@@ -37,7 +37,7 @@ public class MainClass {
 			
 			parser.exibeWarnings();
 			
-			
+			parser.exibeInitialized();
 			
 		}
 		catch(IsiSemanticException ex) {

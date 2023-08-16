@@ -23,6 +23,7 @@ grammar IsiLang;
 	private String _varValue;
 	private IsiSymbolTable symbolTable = new IsiSymbolTable();
 	private IsiSymbolTable symbolTableWar = new IsiSymbolTable();
+	private IsiSymbolTable symbolUsedButNotInitialized = new IsiSymbolTable();
 	private IsiSymbol symbol;
 	private IsiProgram program = new IsiProgram();
 	private ArrayList<AbstractCommand> curThread;
@@ -35,12 +36,26 @@ grammar IsiLang;
 	private ArrayList<AbstractCommand> listaTrue;
 	private ArrayList<AbstractCommand> listaFalse;
 	
+	public void exibeInitialized() {
+		for (IsiSymbol is: symbolUsedButNotInitialized.getMap()) {
+			System.out.println("ISILINDOWARNING: Simbolo usado " + is.getName() + " mas nao iniciado");
+	}
+	}
+	
 	public void verificaID(String id){
 		if (!symbolTable.exists(id)){
 			throw new IsiSemanticException("Symbol "+id+" not declared");
 		}
 		else{
 			symbolTableWar.drop(id);
+		}
+	}
+	
+	public void dropInitialized(String id){
+		if (!symbolTable.exists(id)){
+			throw new IsiSemanticException("Symbol "+id+" not declared");
+		}else{
+			symbolUsedButNotInitialized.drop(id);
 		}
 	}
 	
@@ -66,10 +81,14 @@ grammar IsiLang;
 		program.generateTarget();
 	}
 	
+	
 	public void exibeWarnings() {
 		for (IsiSymbol is: symbolTableWar.getMap()) {
-			System.out.println("Simbolo " + is.getName() + " declarado mas nao utilizado");
+			dropInitialized(is.getName());
+			System.out.println("ISILINDOWARNING: Simbolo " + is.getName() + " declarado mas nao utilizado");
 		}
+	
+	
 	}
 }
 
@@ -90,7 +109,8 @@ declaravar :  tipo ID  {
 	                  symbol = new IsiVariable(_varName, _tipo, _varValue);
 	                  if (!symbolTable.exists(_varName)){
 	                     symbolTable.add(symbol);
-	                     symbolTableWar.add(symbol);		
+	                     symbolTableWar.add(symbol);
+			     		 symbolUsedButNotInitialized.add(symbol);	
 	                  }
 	                  else{
 	                  	 throw new IsiSemanticException("Symbol "+_varName+" already declared");
@@ -103,7 +123,8 @@ declaravar :  tipo ID  {
 	                  symbol = new IsiVariable(_varName, _tipo, _varValue);
 	                  if (!symbolTable.exists(_varName)){
 	                     symbolTable.add(symbol);
-	                     symbolTableWar.add(symbol);	
+	                     symbolTableWar.add(symbol);
+		             	 symbolUsedButNotInitialized.add(symbol);	
 	                  }
 	                  else{
 	                  	 throw new IsiSemanticException("Symbol "+_varName+" already declared");
@@ -175,6 +196,7 @@ cmdWhile : 'enquanto' AP
 cmdleitura	: 'leia' AP
                      ID { verificaID(_input.LT(-1).getText());
                      	  _readID = _input.LT(-1).getText();
+                     	  dropInitialized(_input.LT(-1).getText());
                         } 
                      FP 
                      SC 
@@ -200,7 +222,9 @@ cmdescrita	: 'escreva'
 			;
 			
 cmdattrib	:  ID { verificaID(_input.LT(-1).getText());
+					dropInitialized(_input.LT(-1).getText());		
                     _exprID = _input.LT(-1).getText();
+		    	
                    } 
                ATTR { _exprContent = ""; } 
                expr 

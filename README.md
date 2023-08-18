@@ -12,6 +12,8 @@ Tiago Cornetta Campos - 11201922123
 
 Guilherme de Sousa Santos - 11201921175
 
+Guilherme Klinkerfuss Guimarães Pereira - 11201912414
+
 ITEM (FEITO X)
 
 Possui 2 tipos de variáveis (X)

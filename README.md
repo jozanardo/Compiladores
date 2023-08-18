@@ -1,7 +1,4 @@
 # Compiladores
-java -cp .;antlr-4.7.1-complete.jar org.antlr.v4.Tool IsiLang.g4
-
-java -cp .;antlr-4.7.1-complete.jar org.antlr.v4.Tool IsiLang.g4 -package br.com.professorisidro.isilanguage.parser -o ./src/br/com/professorisidro/isilanguage/parser/
 
 Projeto de compiladores para o quadrimestre suplementar 2023 da UFABC
 
@@ -34,3 +31,11 @@ Verificar se a variável foi declarada e não foi usada (X)
 Verificar se uma variável está sendo usada sem ter valor inicial (X)
 
 Geração de pelo menos 1 linguagem destino (Java) (X)
+
+
+Codigo utilizados para funcionar:
+
+java -cp .;antlr-4.7.1-complete.jar org.antlr.v4.Tool IsiLang.g4
+
+java -cp .;antlr-4.7.1-complete.jar org.antlr.v4.Tool IsiLang.g4 -package br.com.professorisidro.isilanguage.parser -o ./src/br/com/professorisidro/isilanguage/parser/
+

@@ -9,15 +9,15 @@ https://www.youtube.com/watch?v=2gW_-rwDbj4
 Linguagem de programação utilizada Java Integrantes - RA
 
 
-João Augusto Zanardo de Lima - 11201920195
+João Augusto Zanardo de Lima - 11201920195 (Noturno)
 
-Carlos Henrique Alencar Lima -11202021040
+Carlos Henrique Alencar Lima -11202021040 (Matutino)
 
-Tiago Cornetta Campos - 11201922123
+Tiago Cornetta Campos - 11201922123 (Noturno)
 
-Guilherme de Sousa Santos - 11201921175
+Guilherme de Sousa Santos - 11201921175 (Matutino)
 
-Guilherme Klinkerfuss Guimarães Pereira - 11201912414
+Guilherme Klinkerfuss Guimarães Pereira - 11201912414 (Noturno)
 
 ITEM (FEITO X)
 
